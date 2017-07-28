@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>过渡</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			.warp{
+				width: 1000px;
+				margin: 20px auto;
+			}
+			
+			section{
+				width: 100%;
+				background-color: #FFF;
+				box-shadow: 5px 5px 8px #999999;
+				margin: 20px 0;
+			}
+			section > header{
+				width: 100%;
+				padding: 15px;
+				font-size: 18px;
+				font-weight: bold;color: #666666;
+				background-color: #CCCCCC;
+				box-sizing: border-box;
+			}
+			section > div{
+				width: 100%;
+				padding: 15px;
+				min-height: 100px;
+				position: relative;
+			}
+			
+			/*过渡1*/
+			section:nth-child(1) > div > div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition: all 3s;
+			}
+			
+			section:nth-child(1) > div > div:hover{
+				background-color: blue;
+				border-radius: 50px;
+			}
+			
+			/*过渡2*/
+			section:nth-child(2) > div > div{
+				position: absolute;
+				left: 15px;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition-property: left;
+				transition-duration: 3s;
+			}
+			section:nth-child(2) > div > div:hover{
+				left: 50px;
+			}
+			
+			/*过渡3*/
+			section:nth-child(3) > div > div{
+				position: absolute;
+				left: 15px;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition-property: left;
+				transition-duration: 3s;
+				transition-timing-function:ease;
+			}
+			section:nth-child(3) > div > div:hover{
+				left: 150px;
+			}
+			/*过渡4*/
+			section:nth-child(4) > div > div{
+				position: absolute;
+				left: 15px;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition-property: left;
+				transition-duration: 3s;
+				transition-timing-function:ease-in;
+			}
+			section:nth-child(4) > div > div:hover{
+				left: 150px;
+			}
+			
+			/*过渡5*/
+			section:nth-child(5) > div > div{
+				position: absolute;
+				left: 15px;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition-property: left;
+				transition-duration: 3s;
+				transition-timing-function:ease-out;
+			}
+			section:nth-child(5) > div > div:hover{
+				left: 150px;
+			}
+			
+			/*过渡6*/
+			section:nth-child(6) > div > div{
+				position: absolute;
+				left: 15px;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition-property: left;
+				transition-duration: 3s;
+				transition-timing-function:ease-in-out;
+			}
+			section:nth-child(6) > div > div:hover{
+				left: 150px;
+			}
+			
+			/*过渡7*/
+			section:nth-child(7) > div > div{
+				position: absolute;
+				left: 15px;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition-property: left;
+				transition-duration: 3s;
+				transition-timing-function:ease-in-out;
+				transition-delay: 2s;
+			}
+			section:nth-child(7) > div > div:hover{
+				left: 150px;
+			}
+			
+			/*应用01*/
+			section:nth-child(8) > div > div{
+				width: 200px;
+				height: 200px;
+				border: 2px solid #CCCCCC;
+				background-image: url(bg.jpg);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 100% auto;
+				transition: all 3s ease;
+			}
+			
+			section:nth-child(8) > div > div:hover{
+				background-size: 120% auto;
+			}
+			
+			/*应用02*/
+			section:nth-child(9) > div > span{
+				font-size: 18px;
+				margin: 0 20px;
+				transition: all 3s ease;
+				color: #000000;
+			}
+			
+			section:nth-child(9) > div:hover span{
+				margin: 0;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="warp">
+			<section>
+				<header>transition</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>transition-property</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>transition-timing-function:ease(平滑)</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>transition-timing-function:ease-in（由慢到快）</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>transition-timing-function:ease-out（由快到慢）</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>transition-timing-function:ease-in-out(由慢到快再到慢)</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>transition-delay(延迟过渡时间)</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>应用01</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+			
+			<section>
+				<header>应用02</header>
+				<div>
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+					<span>5</span>
+				</div>
+			</section>
+		</div>
+	</body>
+
+</html>

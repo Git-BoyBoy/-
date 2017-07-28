@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#bnt {
+				width: 50px;
+				height: 50px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				var box = document.getElementById( "box" );
+				var bnt = document.getElementById( "bnt" );
+				
+				box.onclick = function () {
+					alert( "hello" );
+				};
+				
+				bnt.onclick = function ( event ) {
+					var event = event || window.event;
+					if( event && event.stopPropagation ){
+						event.stopPropagation();
+					} else {
+						event.cancelBubble = true;
+					}
+					alert( "123" );
+				};
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="box">
+			<div id="bnt"></div>
+		</div>
+	</body>
+</html>

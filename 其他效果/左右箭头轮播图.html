@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			img {
+				vertical-align: top;
+				border: none;
+				width: 490px;
+				height: 200px;
+			}
+			ul {
+				list-style: none;
+			}
+			#box {
+				width: 490px;
+				height: 200px;
+				padding: 5px;
+				border: 1px solid #CCCCCC;
+				margin: 50px auto;
+				position: relative;
+			}
+			
+			#sider {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#sider ul {
+				width: 1000%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#sider ul li {
+				float: left;
+			}
+			
+			#box #rl {
+				display: none;
+			}
+			#box #rl span {
+				position: absolute;
+				width: 50px;
+				height: 100px;
+				background: url(img/left.jpg) 0 0 no-repeat;
+				left: 5px;
+				top: 50%;
+				margin-top: -50px;
+				cursor: pointer;
+			}
+			#box #rl #right {
+				left: auto;
+				right: 5px;
+				background: url(img/right.jpg) 0 0 no-repeat;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				function $( id ) { return document.getElementById( id ) };
+				
+				var leader = 0, target = 0;
+				
+				$( "box" ).onmouseover = function () {
+					$( "rl" ).style.display = "block";
+				};
+				
+				$( "box" ).onmouseout = function () {
+					$( "rl" ).style.display = "none";
+				};
+				
+				$( "right" ).onclick = function () {
+						target <= -1960 ? target : target -= 490;
+				};
+				
+				$( "left" ).onclick = function () {
+						target >= 0 ? target : target += 490;
+				};
+				
+				setInterval( function() {
+					leader = leader + ( target - leader ) / 10;
+							
+					$( "sider" ).children[ 0 ].style.left = leader + "px";
+				}, 30 );
+			}
+		</script>
+	</head>
+		
+	<body>
+		<div id="box">
+			<div id="sider">
+				<ul>
+					<li><a href="#"><img src="images/1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="images/1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="images/1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="images/1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="images/1.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+			
+			<div id="rl"><span id="left"></span><span id="right"></span></div>
+		</div>
+	</body>
+</html>

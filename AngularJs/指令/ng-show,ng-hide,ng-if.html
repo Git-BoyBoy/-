@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.tips {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				background-color: rgba(100, 100, 100, .5);
+				font-size: 40px;
+				text-align: center;
+				line-height: 100vh;
+			}
+		</style>
+	</head>
+	<!--ng-show是否显示，ng-hide是否隐藏，ng-if是否存在-->
+
+	<body ng-app="myApp" ng-controller="myAppController">
+		<div>adajdakj</div>
+		<!--<div class="tips" ng-show="loading">Loading...</div>-->
+		<!--<div class="tips" ng-hide="!loading">Loading...</div>-->
+		<div class="tips" ng-if="loading">Loading...</div>
+		<script src="../bower_components/angular/angular.min.js"></script>
+		<script type="text/javascript">
+			var myApp = angular.module('myApp', [])
+				.controller('myAppController', ['$scope', '$timeout', function($scope, $timeout) {
+					$scope.loading = true;
+					$timeout(function() {
+						$scope.loading = false;
+						$timeout(function() {
+							$scope.loading = true;
+						}, 3000);
+					}, 3000);
+				}]);
+		</script>
+	</body>
+
+</html>

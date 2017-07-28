@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ng-app</title>
+	</head>
+	
+	<body ng-app="myApp">
+		<div ng-controller="domeController1">
+			<input type="button" ng-click="do1()" value="按钮1" />
+		</div>
+		
+		<div ng-controller="domeController2">
+			<input type="button" ng-click="do2()" value="按钮2" />
+		</div>
+		<script src="../bower_components/angular/angular.js"></script>
+		<script type="text/javascript">
+			var app1 = angular.module('myApp1',[]);
+			app1.controller('domeController1',['$scope',function($scope){
+				$scope.do1 = function(){
+					console.log(1111);
+				};
+			}]);
+			
+			var app2 = angular.module('myApp2',[]);
+			app2.controller('domeController2',['$scope',function($scope){
+				$scope.do2 = function(){
+					console.log(2222);
+				};
+			}]);
+			
+			//方法一：手动的让第二个div被myApp2管理
+			//angular.bootstrap(document.querySelector('[ng-app="myApp2"]'),['myApp2']);
+			
+			//方法二：新定义一个模块，让myAPP1和myApp2依赖于它
+			angular.module('myApp',['myApp1','myApp2']);
+		</script>
+	</body>
+</html>

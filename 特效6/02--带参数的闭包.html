@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<script type="text/javascript">
+			window.onload = function (){
+				function out(x){
+					return function(y){
+						alert(x+y)
+					}
+				}
+				
+				var obj = out(2);
+				obj(1);
+			}
+		</script>
+	</body>
+</html>

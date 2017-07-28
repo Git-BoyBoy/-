@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.red{color: red;}
+			.green{color: green;}
+		</style>
+	</head>
+
+	<body ng-app="myApp">
+		<!--第一种方法-->
+		<!--<ul ng-controller="myAppController">
+			<li ng-repeat="item in datas" class="{{$even?'red':'green'}}" data-id="{{item.id}}">
+				<span>{{item.name}}</span>
+				<span>{{item.age}}</span>
+			</li>
+		</ul>-->
+		<!--第一种方法 END-->
+		
+		<!--第二种方法-->
+		<!--ng-class会根据当前设置对象的属性和属性值决定是否添加特定的类名-->
+		<ul ng-controller="myAppController">
+			<li ng-repeat="item in datas" ng-class="{red:$even,green:$odd}" data-id="{{item.id}}">
+				<span>{{item.name}}</span>
+				<span>{{item.age}}</span>
+			</li>
+		</ul>
+		<!--第二种方法 END-->
+		<script src="../bower_components/angular/angular.js"></script>
+		<script type="text/javascript">
+			var myApp = angular.module('myApp',[]);
+			myApp.controller('myAppController',['$scope',function($scope){
+				$scope.datas = [];
+				for(var i = 1; i < 10; i++){
+					$scope.datas[$scope.datas.length] = {
+						id : i,
+						name : "zhang" + i,
+						age : 20 + i
+					};
+				}
+			}]);
+		</script>
+	</body>
+
+</html>

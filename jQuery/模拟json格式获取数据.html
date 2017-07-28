@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>模擬json格式</title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var data = [{
+					name: "one",
+					age: "21",
+					sex: "男"
+				}, {
+					name: "two",
+					age: "32",
+					sex: "女"
+				}];
+
+				/*var str = "";
+				for(var i = 0; i < data.length; i++) {
+					str += "<tr>";
+					str += "<td>" + data[i].name + "</td>";
+					str += "<td>" + data[i].age + "</td>";
+					str += "<td>" + data[i].sex + "</td>";
+					str += "</tr>";
+				}
+*/
+				
+				for(var i = 0; i < data.length; i++) {
+					var tr = $("<tr></tr>");
+					tr.append("<td>"+data[i].name+"</td>");
+					tr.append("<td>"+data[i].age+"</td>");
+					tr.append("<td>"+data[i].sex+"</td>");
+					$("#j_tbody").append(tr);
+				}
+			})
+		</script>
+	</head>
+
+	<body>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>name</th>
+				<th>age</th>
+				<th>sex</th>
+			</tr>
+			<tbody id="j_tbody">
+
+			</tbody>
+		</table>
+	</body>
+
+</html>

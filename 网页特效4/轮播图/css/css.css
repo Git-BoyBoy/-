@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: none;
+	vertical-align: top;
+}
+
+.b-box {
+	position: relative;
+	width: 300px;
+	height: 190px;
+	margin: 100px auto;
+	border: 1px solid red;
+	overflow: hidden;
+}
+
+.i-box {
+	width: 600px;
+	height: 150px;
+}
+
+.i-box .i-m-box {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 300px;
+	height: 150px;
+}
+
+.n-box {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.n-box span {
+	display: inline-block;
+	width: 20px;
+	height: 8px;
+	background: #CCC;
+	margin-left: 5px;
+	cursor: pointer;
+	text-indent: -20em;
+	overflow: hidden;
+}
+
+.n-box span.prev,
+.n-box span.next {
+	position: absolute;
+	top: 50%;
+	width: 30px;
+	height: 50px;
+	margin-top: -50px;
+	background: #FFFFFF;
+}
+
+.n-box span.prev {
+	left: 10px;
+}
+
+.n-box span.next {
+	right: 10px;
+}
+
+.n-box .current {
+	background: blue;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 100px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				//封装获取ID函数
+				function $(id){return document.getElementById(id);}
+				
+				//封装获取元素属性函数
+				function getStyle(obj,attr){
+					if(obj.currentStyle){
+						//IE
+						return obj.currentStyle[attr];
+					} else {
+						return window.getComputedStyle(obj,null)[attr];//其他浏览器
+					}
+				}
+				
+				//封装元素运动函数
+				function animate(obj,json,fn){
+					clearInterval(obj.timer);
+					obj.timer = setInterval(function(){
+						//定义一个变量来判断是否json循环结束
+						var flag = true;
+						//获取当前元素样式属性
+						for( var attr in json ){
+							var current = parseInt(getStyle(obj,attr));
+							//得出步长
+							var step = ( json[attr] - current ) / 10;
+							//判断step为负数还是正数
+							step = step > 0 ? Math.ceil(step) : Math.floor(step);
+							obj.style[attr] = current + step + "px";
+							console.log(current);
+							//判断是否json循环结束
+							if(current != json[attr]){
+								flag = false;
+							}
+						}
+						if(flag){
+							clearInterval(obj.timer);
+							//停止定时器后，判断是否有回调函数
+							if(fn){
+								fn();
+							}
+						}
+					},30);
+				}
+				
+				//使用
+				$("btn1").onclick = function (){
+					animate($("box"),{width:300,height:320,left:200},function(){
+						alert("回调函数！")
+					});
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<button id="btn1">200</button>
+		<button id="btn2">400</button>
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>W3C标准盒模型和IE盒模型区别</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background: yellow;
+				margin: 100px auto;
+				padding: 100px;
+				border: 10px solid red;
+				box-sizing: border-box;
+			}
+			/*IE盒模型只会出现在IE5版本和IE6+的怪异模式中。*/
+			
+			/*
+			总结： 
+			1、当box-sizing默认属性为:content-box时，W3C标准盒模型的盒子宽度为：width；IE盒模型的盒子宽度为：width+border+padding
+			2、当box-sizing默认属性为:border-box时，W3C标准盒模型的盒子宽度为：border+padding；IE盒模型的盒子宽度为：border+padding
+			*/
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+	</body>
+
+</html>

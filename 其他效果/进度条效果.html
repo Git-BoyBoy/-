@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#scroll {
+				width: 400px;
+				height: 8px;
+				margin: 100px;
+				position: relative;
+				background: #CCCCCC;
+			}
+			#bar {
+				position: absolute;
+				width: 15px;
+				height: 23px;
+				background: #369;
+				top: -7px;
+				left: 0;
+				cursor: pointer;
+			}
+			#mask {
+				width: 0;
+				height: 8px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #336699;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				var scr = document.getElementById( "scroll" );
+				var bar = document.getElementById( "bar" );
+				var mask = document.getElementById( "mask" );
+				var content = document.getElementById( "content" );
+				console.log( scr.offsetWidth );
+				bar.onmousedown = function ( event ) {
+					var event = event || window.event;
+					var that = this;
+					var leftValue = event.clientX - that.offsetLeft;
+					
+					document.onmousemove = function ( event ) {
+						var event = event || window.event;
+						
+						that.style.left = event.clientX - leftValue + "px";
+						var left = parseInt( that.style.left );
+						//console.log( left );
+						
+						
+						//console.log(left);
+						if( left < 0 ) {
+							that.style.left = 0;
+						} else if( left > ( scr.offsetWidth - bar.offsetWidth ) ) {
+							that.style.left = scr.offsetWidth - bar.offsetWidth + "px";
+							//console.log( scr.offsetWidth );
+						}
+						mask.style.width = that.style.left;
+						content.innerHTML = "拖动了：" + parseInt( parseInt( that.style.left ) / ( scr.offsetWidth - bar.offsetWidth ) * 100 ) + "%";
+						window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();//清除选择拖动
+					};
+				};
+				
+				document.onmouseup = function () {
+					document.onmousemove = null;
+				};
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="scroll">
+			<div id="bar"></div>
+			<div id="mask"></div>
+		</div>
+		<div id="content"></div>
+	</body>
+</html>

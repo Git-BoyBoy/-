@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>翻转的导航栏</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			nav> ul {
+				margin: 100px auto;
+				width: 1000px;
+				height: 45px;
+				line-height: 45px;
+				background-image: linear-gradient(#292929, #252525);
+				display: flex;
+			}
+			
+			nav> ul> li {
+				text-align: center;
+				flex: 1;
+				position: relative;
+			}
+			
+			a {
+				color: #888;
+				text-decoration: none;
+			}
+			
+			nav> ul> li:hover {
+				background-image: linear-gradient(#1c1c1c, #1b1b1b);
+			}
+			
+			.subnav {
+				position: absolute;
+				top: 45px;
+				left: 0;
+				width: 100%;
+				-webkit-perspective: 400px;
+				height: 0;
+			}
+			
+			.subnav> li {
+				background-image: linear-gradient(#292929, #252525);
+				opacity: 0;
+				transform: rotateY(90deg);
+				transition: opacity .4s, transform .5s;
+			}
+			
+			nav> ul> li:hover .subnav> li {
+				opacity: 1;
+				transform: none;
+			}
+			
+			.subnav li:nth-child(1) {
+				-webkit-transition-delay: 200ms;
+			}
+			
+			.subnav li:nth-child(2) {
+				-webkit-transition-delay: 150ms;
+			}
+			
+			.subnav li:nth-child(3) {
+				-webkit-transition-delay: 100ms;
+			}
+			
+			.subnav li:nth-child(4) {
+				-webkit-transition-delay: 50ms;
+			}
+			
+			.subnav li:nth-child(5) {
+				-webkit-transition-delay: 0ms;
+			}
+			
+			nav>ul>li:hover .subnav li:nth-child(1) {
+				-webkit-transition-delay: 0s;
+			}
+			
+			nav>ul>li:hover .subnav li:nth-child(2) {
+				-webkit-transition-delay: 50ms;
+			}
+			
+			nav>ul>li:hover .subnav li:nth-child(3) {
+				-webkit-transition-delay: 100ms;
+			}
+			
+			nav>ul>li:hover .subnav li:nth-child(4) {
+				-webkit-transition-delay: 150ms;
+			}
+			
+			nav>ul>li:hover .subnav li:nth-child(5) {
+				-webkit-transition-delay: 200ms;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav>
+			<ul>
+				<li>
+					<a href="#">导航栏</a>
+					<ul class="subnav">
+						<li>
+							<a href="#">001</a>
+						</li>
+						<li>
+							<a href="#">002</a>
+						</li>
+						<li>
+							<a href="#">003</a>
+						</li>
+						<li>
+							<a href="#">004</a>
+						</li>
+						<li>
+							<a href="#">005</a>
+						</li>
+
+					</ul>
+				</li>
+				<li>
+					<a href="#">导航栏</a>
+				</li>
+				<li>
+					<a href="#">导航栏</a>
+				</li>
+				<li>
+					<a href="#">导航栏</a>
+				</li>
+				<li>
+					<a href="#">导航栏</a>
+				</li>
+			</ul>
+		</nav>
+	</body>
+
+</html>

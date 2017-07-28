@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+				function loadBrowser() {
+		var userAgent = navigator.userAgent.toLocaleLowerCase();
+		//debugger;
+	if ((userAgent.match(/(mqqbrowser|juc|fennec|symbian|windows phone|android|blackberry|webos|browserng|iemobile|wosbrowser|iphone)/i))) {
+			return "mobile"
+		} 
+	}
+	if (loadBrowser() == 'mobile'){
+		window.location.href = "/gzgov/phone.shtml";
+	}
+	<!--#include virtual="/gzgov/home.shtml"-->
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

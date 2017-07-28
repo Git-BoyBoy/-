@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>获取网址中的锚点</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			window.onload = function(){
+				(function(window){
+					window.addEventListener("hashchange",function(e){
+//						console.log(e);
+						console.log(window.location.hash);
+					});
+				})(window)
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>兼容ClassName</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 30px;
+				margin: 10px 0;
+				border: 1px solid #FF0000;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			//封装获取类名函数
+			var getClass = function ( className, results ){
+				results = results || [];
+				
+				results.push.apply( results, document.getElementsByClassName( className ) );
+				return results;
+			};
+			
+			//封装循环
+			var each = function ( arr, fn ) {
+				for ( var i = 0; i < arr.length; i++ ) {
+					if ( fn.call( arr[i], i, arr[i] ) == false ) {
+						break;
+					}
+				}
+			};
+		</script>
+	</head>
+	
+	<body>
+		<div class="c1"></div>
+		<div class="c"></div>
+		<div class="c2"></div>
+		<div class="c1"></div>
+	</body>
+	<script type="text/javascript">
+		var list = getClass( "c1" );
+		console.log( list );
+		each( list, function() {
+			this.style.backgroundColor = "red";
+		})
+	</script>
+</html>

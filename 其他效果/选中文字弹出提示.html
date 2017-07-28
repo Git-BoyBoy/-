@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#box1,#box2 {
+				width: 500px;
+				height: auto;
+				margin: 100px auto;
+				line-height: 24px;
+			}
+			
+			#mask{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: auto;
+				height: auto;
+				background: red;
+				padding: 15px;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				var box1 = document.getElementById( "box1" );
+				var mask = document.getElementById( "mask" );
+				
+				box1.onmouseup = function ( event ) {
+					var event = event || window.event;
+					var maxk_x = event.clientX;
+					var mask_y = event.clientY;
+					mask.style.display = "block";
+					mask.style.left = mask_x + "px";
+					mask.style.top = mask_y + "px";
+					
+					if( event && event.stopPropagation ){
+						event.stopPropagation();
+					}
+				};
+				document.onclick = function(){
+					mask.style.display = "none";
+				};
+			}
+		</script>
+	</head>
+	
+	<body>
+		<span id="mask"></span>
+		<div id="box1">
+			前段时间，广州火车东站面临改造的消息不胫而走，却一直未见有动静。近日，记者走访时却意外发现，广州火车东站已搭起了棚架并开始进行改造。据了解，此次改造将会对广州东站的整个空间布局进行调整，其中将会把原本位于一楼的长途售票厅搬到二楼，天幕广场的空间也将进行重组，此外，厦深动车组候车室也将进行扩建改造。工程总投资3000多万元，预计一个半月后将完成改造。
+		</div>
+		
+		<div id="box2">
+			前段时间，广州火车东站面临改造的消息不胫而走，却一直未见有动静。近日，记者走访时却意外发现，广州火车东站已搭起了棚架并开始进行改造。据了解，此次改造将会对广州东站的整个空间布局进行调整，其中将会把原本位于一楼的长途售票厅搬到二楼，天幕广场的空间也将进行重组，此外，厦深动车组候车室也将进行扩建改造。工程总投资3000多万元，预计一个半月后将完成改造。
+		</div>
+	</body>
+</html>

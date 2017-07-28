@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-app>
+		<select ng-model="myVar">
+			<option value="web">web</option>
+			<option value="web2">web2</option>
+			<option value="web3">web3</option>
+		</select>
+		
+		<div ng-switch="myVar">
+			<div ng-switch-when="web">web</div>
+			<div ng-switch-when="web2">web2</div>
+			<div ng-switch-when="web3">web3</div>
+			<div ng-switch-default>default</div>
+		</div>
+		<script src="../bower_components/angular/angular.min.js"></script>
+	</body>
+
+</html>

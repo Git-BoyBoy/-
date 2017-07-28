@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				border: none;
+			}
+			
+			#box {
+				width: 350px;
+				height: 350px;
+				position: relative;
+				margin: 100px;
+				border: 1px solid #CCCCCC;
+			}
+			
+			#samll {
+				position: relative;
+			}
+			#samll img {
+				width: 350px;
+				height: 350px;
+			}
+			#samll #smak {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background: rgba( 255,255,0,0.4);
+				top: 0;
+				left: 0;
+				cursor: move;
+				display: none;
+			}
+			
+			#big {
+				position: absolute;
+				width: 450px;
+				height: 450px;
+				border: 1px solid #CCCCCC;
+				left: 360px;
+				top: 0;
+				overflow: hidden;
+				display: none;
+			}
+			
+			#big img {
+				width: 800px;
+				height: 800px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				var box = document.getElementById( "box" );
+				var samll = box.children[ 0 ];
+				var smak = samll.children[ 1 ];
+				var big = box.children[ 1 ];
+				var bigImg = big.children[ 0 ];
+				
+				samll.onmousemove = function ( event ) {
+					smak.style.display = "block";
+					big.style.display = "block";
+					
+					var event = event || window.event;
+					var x = event.clientX - this.offsetParent.offsetLeft - smak.offsetWidth / 2;
+					var y = event.clientY - this.offsetParent.offsetTop - smak.offsetHeight / 2;
+					
+					if ( x < 0 ) {
+						x = 0;
+					} else if ( x > 250 ) {
+						x = 250;
+					}
+					
+					if ( y < 0 ) {
+						y = 0;
+					} else if ( y > 250 ) {
+						y = 250;
+					}
+					smak.style.left = x + "px";
+					smak.style.top = y + "px";
+					
+					bigImg.style.left = -x * big.offsetWidth / samll.offsetWidth + "px";
+					bigImg.style.top = -y * big.offsetHeight / samll.offsetHeight + "px";
+					
+					console.log( bigImg.style.left + "  " + bigImg.style.top );
+					
+				};
+				
+				samll.onmouseout = function () {
+					smak.style.display = "none";
+					big.style.display = "none";
+				};
+				
+				//var leaderX = 0, leaderY = 0, targetX = 0, targetY = 0;
+				
+				/*setInterval( function() {
+					//leaderX = leaderX + ( targetX - leaderX ) / 10;
+					//leaderY = leaderY + ( targetY - leaderY ) / 10;
+					smak.style.left = leaderX + "px";
+					smak.style.top = leaderY + "px";
+					
+				}, 30 )*/
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="box">
+			<!--小图-->
+			<div id="samll">
+				<img src="img/samll.jpg"/>
+				<div id="smak"></div>
+			</div>
+			<!--小图 END-->
+			
+			<!--大图-->
+			<div id="big">
+				<img src="img/big.jpg"/>
+			</div>
+			<!--大图 END-->
+		</div>
+	</body>
+</html>

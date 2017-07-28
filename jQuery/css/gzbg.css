@@ -1,0 +1,158 @@
+body {
+	font: 14px/24px arial, simsun, sans-serif, "microsoft yahei";
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	color: #111;
+	position: relative;
+	background: #fff;
+}
+
+form,
+p,
+ol,
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-size: 12px;
+	font-weight: normal;
+	color: #111;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+img,
+fieldset {
+	border: medium none;
+}
+
+img {
+	vertical-align: left;
+}
+
+em {
+	font-style: normal;
+}
+
+a {
+	cursor: pointer;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+	color: #111;
+}
+
+a:hover,
+a:active {
+	text-decoration: underline;
+	color: #e00000;
+}
+
+table {
+	width: 100%;
+	margin: 0;
+}
+
+.clearing {
+	clear: both;
+	overflow: hidden;
+	width: 1px;
+	height: 0;
+}
+
+.left {
+	float: left;
+	display: inline;
+}
+
+.right {
+	float: right;
+	display: inline;
+}
+
+.hidden {
+	display: none;
+}
+
+.bannertop {
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+	background: #b5c9fb url(../images/gzbg/ba.jpg) no-repeat center 0;
+}
+
+h2 {
+	color: #f8a329;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 90px;
+}
+
+#container {
+	position: relative;
+	width: 680px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+/*#banner-fade ul li {
+	display: none;
+}
+
+#banner-fade ul li.current {
+	display: block;
+}*/
+
+
+/*右边按钮*/
+.spans {
+	position: absolute;
+	right: -123px;
+	top: 0px;
+}
+
+.spans span{
+	display: block;
+	width: 102px;
+	text-align: center;
+	padding: 10px;
+	border: 1px #ccc solid;
+	border-left: none;
+	cursor: pointer;
+}
+.spans span:hover{
+	background: #000000;
+	color: #FFFFFF;
+}
+.bottom {
+	width: 680px;
+	height: 40px;
+	background: #004986;
+	font: 18px/38px "Microsoft YaHei";
+	text-align: center;
+	color: #fff;
+	margin: 0 auto;
+}

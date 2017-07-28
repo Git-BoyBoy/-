@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>ng-bind指令</title>
+	</head>
+	
+	<!--这里ng-bind不能过滤掉文本中的标签-->
+	<!--body ng-app ng-init="username='<h1>hahaha</h1>'">
+		<div ng-bind="username"></div>
+		<script src="../bower_components/angular/angular.js"></script>
+
+	</body-->
+	
+	<!--这里使用ng-bind-html解决文本中标签中的渲染-->
+	<body ng-app="myModule" ng-init="username='<h1>hahah</h1>'">
+		<div ng-bind-html="username"></div>
+		
+		<script src="../bower_components/angular/angular.js"></script>
+		<script src="bower"></script>
+	</body>
+
+</html>

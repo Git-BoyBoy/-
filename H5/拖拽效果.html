@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>H5拖拽效果</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+		<style type="text/css">
+			#target {
+		      padding: 20px;
+		      height: 300px;
+		      border: 5px dashed #c0c0c0;
+		      color: #e0e0e0;
+		      font-size: 40px;
+		      line-height: 260px;
+		      text-align: center;
+		      -webkit-user-select: none;
+		      cursor: pointer;
+		    }
+		    
+		    #target.actived {
+		      border-color: #888;
+		      color: #fafafa;
+		      box-shadow: 0 0 80px #e0e0e0 inset;
+		    }
+		    img{
+		    	width: 200px;
+		    	height: 100px;
+		    }
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>文件拖拽效果</h1>
+			</div>
+			
+			<div class="jumbotron">
+				<p>根据被嵌入内容的外部容器的宽度，自动创建一个固定的比例，从而让浏览器自动确定视频或 slideshow 的尺寸，能够在各种设备上缩放。</p>
+				<img src="../images/1.jpg"/>
+			</div>
+			
+			<div id="target">
+				文档内容、图片、文件、文件夹均可拖拽进来。
+      			<ul id="result" class="list-group"></ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

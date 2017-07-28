@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				position: relative;
+				width: 500px;
+				height: 300px;
+				border: 1px solid #CCCCCC;
+				padding: 5px;
+				margin: 100px auto;
+			}
+			.ul {
+				position: relative;
+				width: 490px;
+				height: 290px;
+				margin: 5px;
+				overflow: hidden;
+			}
+			ul {
+				position: absolute;
+				width: 600%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				
+			}
+			
+			ul li,ol li {
+				list-style: none;
+				float: left;
+			}
+			
+			ul li img {
+				width: 490px;
+				height: 290px;
+				vertical-align: top;
+			}
+			
+			ol{
+				position: absolute;
+				bottom: 15px;
+				left: 50%;
+				margin-left: -60px;
+			}
+			ol li{
+				width: 20px;
+				height: 20px;
+				background: #999999;
+				margin-left: 5px;
+				color: #333333;
+				text-align: center;
+				line-height: 20px;
+				font-size: 13px;
+				cursor: pointer;
+			}
+			ol li.current{
+				background: red;
+				color: #FFFFFF;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {				
+				function fun( obj, target ) {
+					var speed = obj.offsetLeft < target ? 35 : -35;
+					obj.timr = setInterval( function () {
+						var result = target - obj.offsetLeft
+						obj.style.left = obj.offsetLeft + speed + "px";
+						if( Math.abs( result ) <= 35 ){
+							clearInterval( obj.timr );
+							obj.style.left = target + "px";
+						}
+					}, 30 );
+				}
+				
+				var box = document.getElementById( "box" );
+				var ul = box.children[ 0 ].children[ 0 ];
+				var lis = ul.children;
+				
+				ul.appendChild( ul.children[ 0 ].cloneNode( true ) );
+				
+				var ol = document.createElement( "ol" );
+				box.appendChild( ol );
+				
+				for( var i = 0; i < lis.length-1; i++ ) {
+					var oli = document.createElement( "li" );
+					oli.innerHTML = i + 1;
+					ol.appendChild( oli );
+				}
+				
+				ol.children[ 0 ].className = "current";
+				var olis = ol.children;
+				
+				for( var i = 0; i < olis.length; i++ ){
+					olis[ i ].index = i;//获取每个li的索引号
+					
+					olis[ i ].onmouseover = function () {
+						for ( var j = 0; j < olis.length; j++ ){
+							olis[ j ].className = "";
+						}
+						
+						this.className = "current";
+						fun( ul, -this.index*490 );
+						
+					};
+				}
+				var timer = null;
+				var key = 0;//控制图片张数
+				var square = 0;//控制小方块
+				timer = setInterval( autopaly, 1000 );
+				
+				function autopaly(){
+					key++;
+					if( key > lis.length-1 ){
+						ul.style.left = 0;
+						key = 1
+					}
+					fun( ul, -key*490 );
+					
+					square++;
+					if( square > olis.length-1 ){
+						square = 0;
+					}
+					for( var i = 0; i < olis.length; i++ ){
+						olis[ i ].className = "";
+					}
+					
+					olis[ square ].className = "current";
+				}
+				
+
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="box">
+			<div class="ul">
+				<ul>
+					<li><img src="images/1.jpg" alt="" /></li>
+					<li><img src="images/2.jpg" alt="" /></li>
+					<li><img src="images/3.jpg" alt="" /></li>
+					<li><img src="images/4.jpg" alt="" /></li>
+					<li><img src="images/5.jpg" alt="" /></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

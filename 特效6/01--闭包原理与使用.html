@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<script type="text/javascript">
+			window.onload = function(){
+				function out(){
+					var a = 0;
+					function inin(){
+						a++;
+						alert(a);
+					}
+					return inin;
+				}
+				console.log(out());
+				var obj = out();
+				obj();
+				obj();
+			}
+		</script>
+	</body>
+</html>

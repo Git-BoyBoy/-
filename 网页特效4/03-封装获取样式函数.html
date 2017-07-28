@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				margin: 0 auto;
+				opacity: 0.6;
+				background: red;
+				/*ie*/
+				filter: Alpha(opacity=60);
+				z-index: 1;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				function $(id) { return document.getElementById(id) }
+				function getStyle(obj,attr){
+					if(obj.currentStyle){
+						return obj.currentStyle[attr];
+					} else {
+						return window.getComputedStyle(obj,null)[attr];
+					}
+				}
+				console.log(getStyle($("did"),"width"));
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="did"></div>
+	</body>
+</html>

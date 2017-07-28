@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>天河家风展览</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font: 14px "Microsoft Yahei";
+				font-weight: bold;
+			}
+			
+			.tab-box .tab-samll-box {
+				position: fixed;
+				right: 20px;
+				/*top: 50%;
+				margin-top: -220px;*/
+				bottom: 10px;
+			}
+			.tab-box .tab-samll-box li {
+				padding: 10px;
+				background-color: #fdc913; 
+				color: #333;
+				cursor: pointer;
+				list-style-type: none;
+				text-align: center;
+				margin-bottom: 10px;
+			}
+			
+			.tab-box .tab-samll-box li.current {
+				background: #333333;
+				color: #FFFFFF;
+			}
+			
+			.tab-big-box .tab-content{
+				width: 100%;
+				min-height: 750px;
+				overflow: scroll;
+				display: none;
+				text-align: center;
+			}
+			
+			.tab-big-box .n-current{
+				display: block;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				function $( id ) { return document.getElementById( id ) };
+				
+				var tab_ul = $( "tab-ul" );
+				var lis = tab_ul.children[0].children;
+				var tab_content = $( "tab-content" );
+				var divs = tab_content.children;
+				var timer = null;
+			    for (var i = 0; i < lis.length; i++) {
+			        lis[i].index = i;
+			        lis[i].onclick = function() {
+			            show(this.index);
+			        }
+			    }
+			    function show(num) {
+			        index = num;
+			        var alpha = 0;
+			        for (var j = 0; j < lis.length; j++) {
+			            lis[j].className = "";
+			            divs[j].className = "tab-content";
+			            divs[j].style.opacity = 0;
+			            divs[j].style.filter = "alpha(opacity=0)";
+			        }
+			        lis[index].className = "current";
+			        divs[index].className = "tab-content n-current";
+			        clearInterval(timer);
+			        timer = setInterval(function() {
+			            alpha += 5;
+			            alpha > 100 && (alpha = 100);
+			            divs[index].style.opacity = alpha / 100;
+			            divs[index].style.filter = "alpha(opacity=" + alpha + ")";
+			            alpha == 100 && clearInterval(timer);
+			        },
+			        5)
+			    }
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="tab-box">
+			<div class="tab-samll-box" id="tab-ul">
+				<ul>
+					<li class="current">主展板</li>
+					<li>前言</li>
+					<li>中华家风故事精粹</li>
+					<li>中国古今家训家规精选</li>
+					<li>广东历史人物家风</li>
+					<li>天河家风文化活动</li>
+					<li>天河历史人物家风</li>
+					<li>天河家训家规</li>
+					<li>结束语</li>
+				</ul>
+			</div>
+			
+			<!-- 展示内容  -->
+			<div class="tab-big-box" id="tab-content">
+				<div class="tab-content n-current"><img src="images/thjf/1.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/2.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/3.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/4.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/5.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/6.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/7.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/8.jpg"/></div>
+				<div class="tab-content"><img src="images/thjf/9.jpg"/></div>
+			</div>
+			<!-- 展示内容 END -->
+		</div>
+	</body>
+</html>

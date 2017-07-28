@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJs</title>
+	</head>
+	
+	<body ng-app="myApp" ng-controller="domeController">
+		<h3>AngularJs數據雙向綁定</h3>
+		<input type="text" ng-model="user.name" />
+		<p>{{user.name}}</p>
+		<script src="bower_components/angular/angular.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('myApp',[]);
+			
+			app.controller('domeController',['$scope',function($scope){
+				$scope.user = {
+					name = ''
+				};
+				$scope.message = '請輸入用戶名';
+				
+				$scope.$watch('user.name'function(now,old){
+					if(now){
+						if(now.length < 4){
+							$scope.message = '輸入格式不合法';
+						} else {
+							$scope.message = '';
+						}
+					} else {
+						$scope.message = '請輸入用戶名';
+					}
+				});
+			}]);
+		</script>
+	</body>
+</html>

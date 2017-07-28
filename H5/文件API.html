@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>H5文件API</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<!--<button type="button" class="btn btn-danger">Action</button>-->
+		<form action="#" method="post" id="file_click">
+			<input type="file" name="file_api" class="hidden" multiple />
+			<input type="button" class="btn btn-danger" value="请选择文件" />
+		</form>
+
+		<ul class="list-group" id="file_content"></ul>
+	</body>
+	<script type="text/javascript">
+		(function(){
+			var forms = document.querySelector("#file_click");
+			var file_api = forms.children[0];
+			var file_click = forms.children[1];
+			var file_content = document.querySelector("#file_content");
+			
+			
+			file_click.addEventListener("click",function(){
+				file_api.click();
+			});
+			
+			file_api.addEventListener("change",function(){
+				var files = file_api.files;
+				for (var i = 0; i < files.length; i++) {
+					var li = document.createElement("li");
+					li.className = "list-group-item";
+					li.innerHTML = '<h4 class="list-group-item-heading">'+files[i].name+'</h4>'+
+					'<p class="list-group-item-text">'+files[i].lastModifiedDate.toLocaleDateString()+' '+files[i].lastModifiedDate.toLocaleTimeString()+' '+(files[i].size / 1024).toFixed(2)+'KB</p>';
+					file_content.appendChild(li);
+				}
+			});
+		})();
+	</script>
+
+</html>

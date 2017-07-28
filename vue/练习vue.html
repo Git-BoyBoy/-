@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>练习vue.js框架</title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+
+	<body>
+		<span id="span" v-once>{{msg}}</span>
+		<script type="text/javascript">
+/*			var data = {a:1};
+			var vm = new Vue({
+				data : data
+			});
+			console.log(vm.$data === data)
+			
+			var vm1 = new Vue({
+				data : {
+					a:1
+				},
+				created:function(){
+					console.log("a this:"+this.a)
+				}
+			});*/
+			
+			var vm2 = new Vue({
+				el : "#span",
+				data :{msg : "one two"}
+			});
+		</script>
+	</body>
+
+</html>

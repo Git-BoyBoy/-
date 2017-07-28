@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function (){
+				//封装获取ID函数
+				function $(id) { return document.getElementById(id); }
+				
+				//封装获取元素样式函数
+				function getStyle(obj,attr){
+					if(obj.currentStyle){
+						return obj.currentStyle[attr];//ie
+					} else {
+						return window.getComputedStyle(obj,null)[attr];
+					}
+				}
+				
+				//封装获取多个属性运动函数
+				function animate(obj,json){
+					clearInterval(obj.timer);
+					obj.timer = setInterval(function(){
+						//遍历json
+						for(var attr in json){
+							//获取属性
+							var current = parseInt(getStyle(obj,attr));
+							//获得步长
+							var step = (json[attr] - current) / 10;
+							//判断步长为正数还是负数
+							step = step > 0 ? Math.ceil(step) : Math.floor(step);
+							//开始动画
+							obj.style[attr] = current + step + "px";
+						}
+					},10)
+					console.log(obj.timer);
+				}
+				
+				$("btn200").onclick = function (){
+					animate($("box"),{width:200,height:200,left:200})
+				};
+				
+				$("btn400").onclick = function (){
+					animate($("box"),{width:400,height:400,left:400})
+				};
+			}
+		</script>
+	</head>
+	
+	<body>
+		<button id="btn200">200</button>
+		<button id="btn400">400</button>
+		<div id="box"></div>
+	</body>
+</html>

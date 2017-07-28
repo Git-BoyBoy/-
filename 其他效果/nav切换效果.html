@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: #000000;
+			}
+			
+			
+			#nav {
+				width: 700px;
+				height: 45px;
+				background: #FFFFFF;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			span {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 45px;
+				background: pink;
+			}
+			#nav ul {
+				list-style: none;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#nav ul li {
+				float: left;
+				width: 100px;
+				height: 45px;
+				line-height: 45px;
+				text-align: center;
+				font-size: 18px;
+				cursor: pointer;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				var nav = document.getElementById( "nav" );
+				var span = nav.children[ 0 ];
+				var lis = nav.children[ 1 ].children;
+				var current = 0;
+				
+				for( var i = 0; i < lis.length; i++ ){
+					lis[ i ].onmouseover = function () {
+						target = this.offsetLeft;
+					};
+					
+					lis[ i ].onmouseout = function () {
+						target = current;
+					};
+					
+					lis[ i ].onclick = function () {
+						current = this.offsetLeft;
+					};
+				}
+				
+				var leader = 0, target = 0;
+				setInterval( function(){
+					leader = leader + ( target - leader ) / 10;
+					span.style.left = leader + "px";
+				}, 10)
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="nav">
+			<span></span>
+			<ul>
+				<li>网站首页</li>
+				<li>天河动态</li>
+				<li>走进天河</li>
+				<li>网上办事</li>
+				<li>政务公开</li>
+				<li>互动交流</li>
+				<li>工作机构</li>
+			</ul>
+		</div>
+	</body>
+</html>

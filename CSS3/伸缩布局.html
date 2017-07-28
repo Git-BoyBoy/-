@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>伸缩布局</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				background-color: #E2E2E2;
+			}
+			ul{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.warp{
+				width: 1000px;
+				margin: 20px auto;
+			}
+			
+			section{
+				width: 100%;
+				background-color: #FFF;
+				box-shadow: 5px 5px 8px #999999;
+				margin: 20px 0;
+			}
+			section > header{
+				width: 100%;
+				padding: 15px;
+				font-size: 18px;
+				font-weight: bold;color: #666666;
+				background-color: #CCCCCC;
+				box-sizing: border-box;
+			}
+			section > div{
+				width: 100%;
+				padding: 15px;
+				box-sizing: border-box;
+			}
+			
+			/*伸缩布局1*/
+			section:nth-child(1) > div img{
+				width: 100%;
+			}
+			
+			/*伸缩布局2*/
+			section > div > header{
+				width: 100%;
+				padding: 15px;
+			}
+			section > div > ul{
+				display: flex;
+				justify-content: space-between;
+			}
+			section > div > ul >li{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				text-align: center;
+				margin: 5px 10px;
+				line-height: 100px;
+			}
+			
+			/*伸缩布局3*/
+			section:nth-child(3) > div > ul{
+				justify-content: space-around;
+			}
+			
+			/*伸缩布局4*/
+			section:nth-child(4) > div > ul{
+				justify-content: flex-end;
+			}
+			
+			/*伸缩布局5*/
+			section:nth-child(5) > div > ul{
+				justify-content: flex-start;
+			}
+			
+			/*伸缩布局6*/
+			section:nth-child(6) > div > ul{
+				flex-direction: row-reverse;
+				justify-content: space-between;
+			}
+			
+			/*伸缩布局7*/
+			section:nth-child(7) > div > ul{
+				/*flex-direction: row-reverse;*/
+				justify-content: flex-start;
+				flex-wrap: wrap;
+			}
+			
+			/*伸缩布局8*/
+			section:nth-child(8) > div > ul{
+				/*flex-direction: row-reverse;*/
+				justify-content: flex-start;
+				flex-wrap: wrap-reverse;
+			}
+			
+			/*伸缩布局9*/
+			section:nth-child(9) > div > ul{
+				height: 200px;
+				justify-content: flex-start;
+				align-items: flex-start;
+			}
+			
+			/*伸缩布局10*/
+			section:nth-child(10) > div > ul{
+				height: 200px;
+				justify-content: flex-start;
+				align-items: flex-end;
+			}
+			
+			/*伸缩布局11*/
+			section:nth-child(11) > div > ul{
+				height: 200px;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			
+			/*伸缩布局12*/
+			section:nth-child(12) > div > ul{
+				height: 200px;
+				justify-content: flex-start;
+				align-items: baseline;
+			}
+			section:nth-child(12) > div > ul > li:nth-child(1){
+				line-height: 50px;
+			}
+			
+			/*伸缩布局13*/
+			section:nth-child(13) > div > ul{
+				height: 200px;
+				justify-content: flex-start;
+				align-items: stretch;
+			}
+			section:nth-child(13) > div > ul > li{
+				height: auto;
+			}
+			
+			/*伸缩布局14*/
+			section:nth-child(14) > div > ul{
+				justify-content: flex-start;
+			}
+			section:nth-child(14) > div > ul > li:nth-child(4){
+				order: -1;
+			}
+			
+			/*伸缩布局15*/
+			section:nth-child(15) > div > ul{
+				justify-content: flex-start;
+			}
+			section:nth-child(15) > div > ul > li{
+				flex-grow: 1;
+			}
+			
+			/*伸缩布局16*/
+			section:nth-child(16) > div > ul{
+				justify-content: flex-start;
+			}
+			section:nth-child(16) > div > ul > li:nth-child(3){
+				flex-grow: 2;
+			}
+			
+			/*伸缩布局17*/
+			section:nth-child(17) > div > ul{
+				justify-content: flex-start;
+			}
+			section:nth-child(17) > div > ul > li{
+				flex-shrink: 1;
+			}
+			
+			/*伸缩布局18*/
+			section:nth-child(18) > div > ul{
+				justify-content: flex-start;
+			}
+			section:nth-child(18) > div > ul > li:nth-child(3){
+				flex-shrink: 0;
+			}
+			
+			/*伸缩布局19*/
+			section:nth-child(19) > div > ul{
+				height: 200px;
+				justify-content: flex-start;
+			}
+			section:nth-child(19) > div > ul > li:nth-child(3){
+				align-self: flex-end;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="warp">
+			<section>
+				<header>新概念</header>
+				<div><img src="flex.png"/></div>
+			</section>
+			
+			<section>
+				<header>主轴横向两端对齐布局(justify-content:space-between)</header>
+				<div>
+					<header>自动精确控制对齐，无需计算</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>主轴横向两端对齐布局(justify-content:space-around)</header>
+				<div>
+					<header>自动精确控制对齐，无需计算</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>主轴横向两端对齐布局(justify-content:flex-end)</header>
+				<div>
+					<header>自动精确控制对齐，无需计算</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>主轴横向两端对齐布局(justify-content:flex-start)</header>
+				<div>
+					<header>自动精确控制对齐，无需计算</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>主轴横向两端对齐布局(从右到左flex-direction:row-reverse)</header>
+				<div>
+					<header>自动精确控制对齐，无需计算</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>wrap：换行，第一行在上方</header>
+				<div>
+					<header>自动精确控制对齐，无需计算</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+						<li>11</li>
+						<li>12</li>
+						<li>13</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>wrap-reverse：换行，第一行在下方</header>
+				<div>
+					<header>自动精确控制对齐，无需计算</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+						<li>11</li>
+						<li>12</li>
+						<li>13</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>align-items属性定义项目在交叉轴上如何对齐（此时主轴是X，交叉轴是Y）</header>
+				<div>
+					<header>flex-start：交叉轴的起点对齐</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>align-items属性定义项目在交叉轴上如何对齐（此时主轴是X，交叉轴是Y）</header>
+				<div>
+					<header>flex-end：交叉轴的终点对齐</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>align-items属性定义项目在交叉轴上如何对齐（此时主轴是X，交叉轴是Y）</header>
+				<div>
+					<header>center：交叉轴的中点对齐</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>align-items属性定义项目在交叉轴上如何对齐（此时主轴是X，交叉轴是Y）</header>
+				<div>
+					<header>baseline: 项目的第一行文字的基线对齐</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>align-items属性定义项目在交叉轴上如何对齐（此时主轴是X，交叉轴是Y）</header>
+				<div>
+					<header>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0</header>
+				<div>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>		
+			
+			<section>
+				<header>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</header>
+				<div>
+					<header>如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>	
+			
+			<section>
+				<header>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</header>
+				<div>
+					<header>如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</header>
+				<div>
+					<header>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+						<li>11</li>
+						<li>12</li>
+						<li>13</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</header>
+				<div>
+					<header>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+						<li>11</li>
+						<li>12</li>
+						<li>13</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section>
+				<header>align-self属性</header>
+				<div>
+					<header>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch</header>
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</body>
+
+</html>

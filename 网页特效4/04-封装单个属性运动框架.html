@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				top: 50px;
+				left: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//封装获取ID函数
+				function $(id) { return document.getElementById(id); }
+				
+				//封装获取元素样式函数
+				function getStyle(obj,attr){
+					if(obj.currentStyle){
+						return obj.currentStyle[attr];
+					} else {
+						//兼容ie
+						return window.getComputedStyle(obj,null)[attr];
+					}
+				}
+				
+				//封装单个属性运动框架
+				function animate(obj,attr,target){
+					//开启定时器前先停一次
+					clearInterval(obj.timer);
+					obj.timer = setInterval( function(){
+						//获取当前样式
+						var current = parseInt( getStyle(obj,attr) );
+						//获取步长
+						var step = ( target - current ) / 10;
+						//缓动动画原来 = 当前样式  + 步长
+						//首先判断步长是正数还是负数
+						step = step > 0 ? Math.ceil(step) : Math.floor(step);
+						//动画开始
+						obj.style[attr] = current + step + "px";
+						
+						//停止定时器
+						if( obj.offsetLeft == target ){
+							clearInterval(obj.timer);
+						}
+					},10 );
+				}
+				
+				$("btn200").onclick = function (){
+					animate($("box"),"left",200);
+				};
+				
+				$("btn400").onclick = function (){
+					animate($("box"),"left",400);
+				};
+			}
+		</script>
+	</head>
+	
+	<body>
+		<button id="btn200">200</button>
+		<button id="btn400">400</button>
+		<div id="box"></div>
+	</body>
+</html>

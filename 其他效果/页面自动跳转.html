@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function () {
+				var box = document.getElementById( "box" );
+				
+				var count = 5;
+				
+				setTimeout( fn, 1000 );
+				
+				function fn () {
+					count--;
+					box.innerHTML = "<a href='http://www.baidu.com'>頁面不存在，將在" + count + "秒后跳轉</a>";
+					if ( count <= 0 ) {
+						window.location.href = "http://www.baidu.com";
+					} else {
+						setTimeout( arguments.callee, 1000 );
+					}
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

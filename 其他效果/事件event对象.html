@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				
+			}
+			body {
+				height: 1000px;
+			}
+			#box {
+				width: 50px;
+				height: 50px;
+				background: red;
+				position: relative;
+				margin: 100px auto;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			/*window.onload = function () {
+				var box = document.getElementById( "box" );
+				
+				document.onclick = function ( event ) {
+					var event = event || window.event;
+					targetX = event.clientX - box.offsetWidth / 2;
+					targetY = event.clientY - box.offsetHeight / 2;
+				};
+				
+				var leaderX = 0, targetX = 0, leaderY = 0, targetY = 0;
+				setInterval( function(){
+					leaderX = leaderX + ( targetX - leaderX ) / 10;
+					leaderY = leaderY + ( targetY - leaderY ) / 10;
+					box.style.left = leaderX + "px";
+					box.style.top = leaderY + "px";
+				}, 30 )
+			}*/
+			
+			window.onload = function () {
+				//var box = document.getElementById( "box" );
+				document.onclick = function ( event ) {
+					var event = event || window.event;
+					console.log( event.clientX + " X " + event.clientY );
+
+					console.log( event.pageX + " X " + event.pageY );
+
+					console.log( event.screenX + " X " + event.screenY );
+				};
+			}
+		</script>
+	</head>
+	
+	<body>
+		<!--<div id="box"></div>-->
+	</body>
+</html>

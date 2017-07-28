@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>城市选择案例</title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				$("#sel-all").on("click",function(){
+					$("#l-sel option").appendTo("#r-sel");
+				});
+				
+				$("#sel-none").on("click",function(){
+					$("#r-sel option").appendTo("#l-sel");
+				});
+				
+				$("#sel-right").on("click",function(){
+					$("#l-sel option:selected").appendTo("#r-sel");
+				});
+				
+				$("#sel-left").on("click",function(){
+					$("#r-sel option:selected").appendTo("#l-sel");
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<select name="l-sel" id="l-sel" multiple="multiple">
+			<option value="1">广东</option>
+			<option value="1">海南岛</option>
+			<option value="1">广州市</option>
+		</select>
+		
+		<button id="sel-all">&gt;&gt;</button><br />
+		<button id="sel-none">&lt;&lt;</button><br />
+		<button id="sel-right">&gt;</button><br />
+		<button id="sel-left">&lt;</button>
+		
+		<select name="r-sel" id="r-sel" multiple>
+		</select>
+	</body>
+
+</html>

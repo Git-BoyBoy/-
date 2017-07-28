@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			.warp{
+				width: 1000px;
+				margin: 20px auto;
+			}
+			
+			section{
+				width: 100%;
+				background-color: #FFF;
+				box-shadow: 5px 5px 8px #999999;
+				margin: 20px 0;
+			}
+			section > header{
+				width: 100%;
+				padding: 15px;
+				font-size: 18px;
+				font-weight: bold;color: #666666;
+				background-color: #CCCCCC;
+				box-sizing: border-box;
+			}
+			section > div{
+				width: 100%;
+				padding: 15px;
+				min-height: 100px;
+				position: relative;
+			}
+			/*动画*/
+			section:nth-child(1) > div > div{
+				width: 30px;
+				height: 30px;
+				animation: change 5s infinite;
+				background: yellowgreen;
+			}
+			 @keyframes change{
+			 	0%{
+			 		width: 30px;
+			 		height: 30px;
+			 	}
+			 	50%{
+			 		width: 30px;
+			 		height: 100px;
+			 	}
+			 	100%{
+			 		width: 100px;
+			 		height: 100px;
+			 	}
+			 }
+			
+		</style>
+	</head>
+	
+	<body>
+		<div class="warp">
+			<section>
+				<header>animation</header>
+				<div>
+					<div></div>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>

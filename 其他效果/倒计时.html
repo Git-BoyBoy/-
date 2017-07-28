@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 1200px;
+				text-align: center;
+				margin: 300px auto;
+				font-size: 50px;
+				font-family: "微软雅黑";
+				color: red;
+				font-weight: bold;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				var box = document.getElementById( "box" );
+				var endTime = new Date( "2017/01/27 00:00:00" );
+				
+				setInterval( fn, 1000 );
+				
+				function fn () {
+					var newTime = new Date();
+					var second = parseInt( ( endTime.getTime() - newTime.getTime() ) / 1000 );
+					var d = parseInt( second / 3600 / 24 );
+					var h = parseInt( second / 3600 % 24 );
+					var m = parseInt( second / 60 % 60 );
+					var s =parseInt( second % 60 );
+					
+					d < 10 ? d = "0" + d : d;
+					h < 10 ? h = "0" + h : h;
+					m < 10 ? m = "0" + m : m;
+					s < 10 ? s = "0" + s : s;
+					
+					box.innerHTML = "距离2017年春节还剩：" + d + "天" + h + "小时" + m + "分" + s + "秒";
+				}
+				
+				/*var box = document.getElementById( "box" );
+				var endTime = new Date( "2016/12/11 17:30:00" );
+				
+				setInterval( fn, 1000 );
+				
+				function fn () {
+					var newTime = new Date();
+					var d = newTime.getDate();
+					var h = newTime.getHours();
+					var m = newTime.getMinutes();
+					var s = newTime.getSeconds();
+					
+					d < 10 ? d = "0" + d : d;
+					h < 10 ? h = "0" + h : h;
+					m < 10 ? m = "0" + m : m;
+					s < 10 ? s = "0" + s : s;
+					
+					box.innerHTML = "距离双11还剩：" + d + "天" + h + "小时" + m + "分" + s + "秒";
+				}*/
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

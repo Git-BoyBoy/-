@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS3文本阴影--换行--溢出</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: '微软雅黑';
+				background-color: #F7F7F7;
+			}
+			
+			section {
+				width: 80%;
+				margin: 20px auto;
+				padding: 10px;
+			}
+			
+			section header {
+				height: 45px;
+				width: 100%;
+				background: #E3E3E3;
+				padding: 5px 15px;
+				line-height: 45px;
+				font-size: 18px;
+				font-weight: bold;
+			}
+			
+			section div {
+				width: 100%;
+				padding: 15px;
+				background: #FFF;
+			}
+			/*文本阴影*/
+			
+			section:nth-child(1) div p {
+				text-shadow: 2px 1px 5px #000000;
+			}
+			/*文本溢出*/
+			
+			section:nth-child(2) div p:first-child {
+				width: 19.5%;
+				overflow: hidden;
+				text-overflow: clip;
+				white-space: nowrap;
+			}
+			
+			section:nth-child(2) div p:last-child {
+				width: 19.5%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			/*文本的大小写*/
+			
+			section:nth-child(3) div p:first-child {
+				text-transform: capitalize;
+			}
+			
+			section:nth-child(3) div p:nth-child(3) {
+				text-transform: uppercase;
+			}
+			
+			section:nth-child(3) div p:nth-child(4) {
+				text-transform: lowercase;
+			}
+			/*文本单词之间间隔*/
+			
+			section:nth-child(4) div p:first-child {
+				word-spacing: normal;
+			}
+			
+			section:nth-child(4) div p:last-child {
+				word-spacing: 20px;
+			}
+			
+			/*文本垂直对其方式*/
+			section:nth-child(5) div p span{
+				font-size: 14px;
+			}
+			section:nth-child(5) div p:first-child span{
+				vertical-align: baseline;
+			}
+			section:nth-child(5) div p:nth-child(2) span {
+				vertical-align: sub;
+			}
+			section:nth-child(5) div p:nth-child(3) span{
+				vertical-align: super;
+			}
+			section:nth-child(5) div p:nth-child(4) span{
+				vertical-align: top;
+			}
+			section:nth-child(5) div p:nth-child(5) span{
+				vertical-align: text-top;
+			}
+			section:nth-child(5) div p:nth-child(6) span{
+				vertical-align: middle;
+			}
+			section:nth-child(5) div p:nth-child(7) span{
+				vertical-align: bottom;
+			}
+			section:nth-child(5) div p:last-child {
+				vertical-align: text-bottom;
+			}
+			
+			/*文本换行*/
+			section:nth-child(6) div p:first-child{
+				width: 20%;
+				word-wrap: normal;	
+			}
+			section:nth-child(6) div p:last-child{
+				width: 20%;
+				word-wrap: break-word;
+			}
+			
+			section:nth-child(7) div p:first-child{
+				width: 20%;
+				white-space: normal;
+			}
+			section:nth-child(7) div p:nth-child(2){
+				width: 20%;
+				white-space: pre;
+			}
+			section:nth-child(7) div p:nth-child(3){
+				width: 20%;
+				white-space: nowrap;
+			}
+			section:nth-child(7) div p:nth-child(4){
+				width: 20%;
+				white-space: pre-wrap;
+			}
+			section:nth-child(7) div p:last-child{
+				width: 20%;
+				white-space: pre-line;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<header>文本阴影</header>
+			<div>
+				<p>第1个长度值用来设置对象的阴影水平偏移值。可以为负值</p>
+				<p>第2个长度值用来设置对象的阴影垂直偏移值。可以为负值</p>
+				<p>如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值</p>
+				<p>设置对象的阴影的颜色。</p>
+			</div>
+		</section>
+
+		<section>
+			<header>文本溢出</header>
+			<div>
+				<p>clip：当对象内文本溢出时不显示省略标记（...），而是将溢出的部分裁切掉。</p>
+				<p>ellipsis：当对象内文本溢出时显示省略标记（...）。</p>
+			</div>
+		</section>
+
+		<section>
+			<header>文本的大小写</header>
+			<div>
+				<p>none:无转换</p>
+				<p>capitalize:将每个单词的第一个字母转换成大写</p>
+				<p>uppercase:转换成大写</p>
+				<p>LOWERCASE:转换成小写</p>
+			</div>
+		</section>
+
+		<section>
+			<header>文本单词之间间隔</header>
+			<div>
+				<p>normal normal:默认间隔</p>
+				<p>length length:用长度值指定间隔。可以为负值。</p>
+			</div>
+		</section>
+
+		<section>
+			<header>文本垂直对其方式</header>
+			<div>
+				<p>baseline：<span>将支持valign特性的对象的内容与基线对齐</span></p>
+				<p>sub：<span>垂直对齐文本的下标</span></p>
+				<p>super：<span>垂直对齐文本的上标</span></p>
+				<p>top：<span>将支持valign特性的对象的内容与对象顶端对齐</span></p>
+				<p>text-top：<span>将支持valign特性的对象的文本与对象顶端对齐</span></p>
+				<p>middle：<span>将支持valign特性的对象的内容与对象中部对齐</span></p>
+				<p>bottom：<span>将支持valign特性的对象的文本与对象底端对齐</span></p>
+				<p>text-bottom：<span>将支持valign特性的对象的文本与对象顶端对齐</span></p>
+			</div>
+		</section>
+		
+		<section>
+			<header>文本换行</header>
+			<div>
+				<p>normal：允许内容顶开或溢出指定的容器边界。</p>
+				<p>break-word：内容将在边界内换行。如果需要，单词内部允许断行。</p>
+			</div>
+		</section>
+		
+		<section>
+			<header>文本换行</header>
+			<div>
+				<p>normal：默认处理方式。</p>
+				<p>pre：用等宽字体显示预先格式化的文本，
+					                            不合并文字间的空白距离，当文字超出边界时不换行。可查阅pre对象</p>
+				<p>nowrap：强制在同一行内显示所有文本，
+					                              直到文本结束或者遭遇br对象。</p>
+				<p>pre-wrap：用等宽字体显示预先格式化的文本，不合并文字间的空白距离，
+					                              当文字碰到边界时发生换行。</p>
+				<p>pre-line：保持文本的换行，不保留文字间的空白距离，
+					                                  当文字碰到边界时发生换行。</p>
+			</div>
+		</section>
+	</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width:500px;
+				height: 500px;
+				border: 1px solid #CCCCCC;
+				background: #FF0000;
+				padding: 10px;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			#son {
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				var box = document.getElementById( "box" );
+				
+				console.log( box.offsetWidth );
+				
+				var son = document.getElementById( "son" );
+				console.log( son.offsetTop );
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="box">
+			<div id="son"></div>
+		</div>
+	</body>
+</html>

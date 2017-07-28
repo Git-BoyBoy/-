@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>渐变效果</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				background: #E2E2E2;
+			}
+			.warp{
+				width: 1000px;
+				margin: 20px auto;
+			}
+			
+			section{
+				width: 230px;
+				height: 230px;
+				margin: 10px;
+				background: #FFF;
+				box-shadow: 5px 5px 8px #999;
+				position: relative;
+				float: left;
+				display: flex;
+				}
+			section::after{
+				content: attr(data-befri);
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				text-align: center;
+				color: #FFF;
+				background: rgba(170,170,170,0);
+				transition: all .3s ease-in;
+				z-index: -1;
+			}
+			section:hover::after{
+				z-index: 1;
+				background: rgba(170,170,170,0.8);
+			}
+			
+			/*默认写法*/
+			section > div{
+				width: 200px;
+				height: 50px;
+				margin: auto;
+				background-image: linear-gradient(yellow,red);
+			}
+			
+			/*渐变1*/
+			section:nth-child(2) > div{
+				background-image: linear-gradient(0deg,yellow,red);
+			}
+			
+			/*渐变2*/
+			section:nth-child(3) > div{
+				background-image: linear-gradient(45deg,yellow,red);
+			}
+			
+			/*渐变3*/
+			section:nth-child(4) > div{
+				background-image: linear-gradient(90deg,yellow,red);
+			}
+			
+			/*渐变4*/
+			section:nth-child(5) > div{
+				background-image: linear-gradient(to top,yellow,red);
+			}
+			
+			/*渐变5*/
+			section:nth-child(6) > div{
+				background-image: linear-gradient(to left top,yellow,red);
+			}
+			
+			/*渐变6*/
+			section:nth-child(7) > div{
+				background-image: linear-gradient(to left,yellow 40%,red 60%);
+			}
+			
+			/*渐变7*/
+			section:nth-child(8) > div{
+				background-image: linear-gradient(to left,yellow 60%,red 40%);
+			}
+			
+			/*渐变8*/
+			section:nth-child(9) > div{
+				background-image: linear-gradient(to left,yellow 60%,red 40%,blue 60%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="warp">
+			<section data-befri="默认效果"><div></div></section>
+			<section data-befri="零度"><div></div></section>
+			<section data-befri="45度"><div></div></section>
+			<section data-befri="90度"><div></div></section>
+			
+			<section data-befri="to top向上渐变"><div></div></section>
+			<section data-befri="to left top左上渐变"><div></div></section>
+			
+			<section data-befri="to left向左渐变，百分比控制渐变区域"><div></div></section>
+			<section data-befri="yellow:60%;red:40%;"><div></div></section>
+			<section data-befri="yellow:60%;red:40%;blue:60%"><div></div></section>
+		</div>
+	</body>
+
+</html>

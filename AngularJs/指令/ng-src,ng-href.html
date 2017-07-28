@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-app ng-init="imgSrc='banner.jpg'">
+		<!--当用src时，就算是使用了ng-cloak解决了闪烁问题，但在控制台中一直存在图片地址请求错误的提示，所以只要使用ng-src即可，ng-href同理-->
+		<!--<img src="{{imgSrc}}" alt="" />-->
+		<img ng-src="{{imgSrc}}" alt="" />
+		<script src="../bower_components/angular/angular.min.js"></script>
+	</body>
+
+</html>
